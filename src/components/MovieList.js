@@ -1,10 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux'
 
-import { addMovie } from "../actions";
-
 import Movie from './Movie';
-
 
 
 const MovieList = props => {
