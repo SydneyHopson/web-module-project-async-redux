@@ -1,29 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+
+import { createStore, applyMiddleware, compose  } from 'redux';
 import { Provider } from 'react-redux';
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
+
+import reducer from './reducer';
+
+
 
 import App from './App';
 import './index.css';
 
-function reducer() {
-  return { 
-    user: {
-      name: 'SYDNEY'
-    },
-    movies: [
-      'Belly',
-      'Paid in Full',
-      'NBA2k23'
-    ],
-    todoList: [
-      { task: 'Learn Redux', id: 0, completed: false }
-    ],
-    movieToWatch: 55
-  };
-}; 
-
-const store = createStore(reducer)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer,composeEnhancers(applyMiddleware(thunk,logger)))
 
 ReactDOM.render(
   <Provider store={store}>
