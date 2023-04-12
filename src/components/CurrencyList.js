@@ -22,13 +22,15 @@ const CurrencyList = (props) => {
 
         <h4>CoinDesk Bitcoin Price Index </h4>
 
-        {
+        {/* {
             props.currency.map(currency => {
               ( 
              <Currency getCurrency={currency} />
                 )
             } )
-        } 
+        }  */}
+
+        <Currency/>
         
 
 
